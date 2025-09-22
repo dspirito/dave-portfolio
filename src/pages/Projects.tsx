@@ -2,6 +2,7 @@ import React from 'react';
 import ProjectCard from '../components/ProjectCard';
 import sigOpticsImage from '../sig-optics.png';
 import reactevrebate from '../react-ev-rebate.png';
+import deepfakearmyImage from '../deep-fake-army.png';
 
 interface Project {
     title: string;
@@ -9,17 +10,25 @@ interface Project {
     bullets: string[];
     link: string;
     imageUrl: string;
-    logo?: React.ReactElement; // Updated to accept any React element
-    logoAlt?: string; // Optional alt text for the logo
+    logo?: React.ReactElement;
+    logoAlt?: string;
+    githubLink?: string; // Add this line
 }
 
 const projects: Project[] = [
+    {
+        title: 'DeepFakeArmy.com | AI detection tool with user commenting and voting',
+        description: 'Full-stack React web application that allows users to upload videos and images to check for deepfake content using AI detection algorithms. Users can comment and vote on the authenticity of the media.',
+        bullets: ['Firebase Studio', 'Gemini', 'React', 'Next.js', 'Node.js', 'Express', 'MongoDB', 'AI/ML Integration'],
+        link: 'https://deepfakearmy.com',
+        imageUrl: deepfakearmyImage,
+    },
     {
         title: 'SIGoptics.com | eCommerce Magento website store view',
         description: 'Project Management of SIG SAUER Magento store view for SIGOptics.com, an eCommerce website specializing in optical products.',
         bullets: ['Magento 2.4', 'Adobe Commerce', 'Project Management', 'eCommerce', 'PHP', 'Javascript', 'Full-stack Development'],
         link: 'https://sigoptics.com',
-        imageUrl: sigOpticsImage
+        imageUrl: sigOpticsImage,
     },
     {
         title: 'Wallbox EVSE Rebate Search Tool',
@@ -39,14 +48,8 @@ const projects: Project[] = [
                 clipRule: "evenodd"
             })
         }),
-        logoAlt: 'WBX logo'
-    },
-    {
-        title: 'DeepFakeArmy.com | AI detection tool with user commenting and voting',
-        description: 'Vibe-coded a full-stack web application that allows users to upload videos and images to check for deepfake content using AI detection algorithms. Users can comment and vote on the authenticity of the media.',
-        bullets: ['Firebase Studio', 'Gemini', 'React', 'Node.js', 'Express', 'MongoDB', 'AI/ML Integration'],
-        link: 'https://deepfakearmy.com',
-        imageUrl: '/image3.jpg'
+        logoAlt: 'WBX logo',
+        githubLink: 'https://github.com/dspirito/react-evrebate'
     }
 ];
 
