@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gray-100 text-gray-900;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+}
+
+a {
+    color: rgb(255, 255, 255);
+}
+a:hover {
+    color: rgba(181, 223, 255, 0.8);
+}
+
+/* If you want to use this indigo for borders, backgrounds, etc., add utility classes: */
+.border-indigo-custom {
+    border-color: rgba(0,108,201,1);
+}
+.bg-indigo-custom {
+    background-color: rgba(0,108,201,1) !important;
+}
+
+.container {
+    @apply mx-auto px-4;
+}
+
+.footer {
+    @apply text-center py-4;
+}
