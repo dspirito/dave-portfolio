@@ -4,10 +4,7 @@ import DaveImg from '/dave.jpeg'; // Adjust the path if needed
 
 const Header: React.FC = () => {
   const [dark, setDark] = useState(false);
-  //uncomment this for dark mode
-  //const [dark, setDark] = useState(
-  //  () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  //);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for mobile menu
 
   useEffect(() => {
     if (dark) {
@@ -16,6 +13,10 @@ const Header: React.FC = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [dark]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header className="bg-white dark:bg-gray-900 border-b dark:border-gray-800">
@@ -32,7 +33,7 @@ const Header: React.FC = () => {
             David Spirito's Portfolio
           </Link>
         </div>
-        <nav>
+        <nav className="hidden lg:block"> {/* Hide on small screens, show on large */}
           <ul className="flex items-center space-x-8">
             <li>
               <Link
@@ -73,6 +74,22 @@ const Header: React.FC = () => {
           </ul>
         </nav>
         <div className="flex items-center space-x-4">
+          {/* Hamburger menu button for small screens */}
+          <button onClick={toggleMenu} className="lg:hidden p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-label="Toggle mobile menu">
+            {isMenuOpen ? (
+              // Close icon (X)
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              // Hamburger icon
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+
+          {/* Dark mode toggle */}
           <button
             onClick={() => setDark((d) => !d)}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition"
@@ -92,12 +109,31 @@ const Header: React.FC = () => {
           </button>
           <Link
             to="/contact"
-            className="ml-4 inline-block rounded-md bg-indigo-custom px-5 py-2 text-white font-semibold shadow hover:bg-indigo-custom transition"
+            className="ml-4 inline-block rounded-md bg-indigo-custom px-5 py-2 text-white font-semibold shadow hover:bg-indigo-custom transition lg:block hidden"
           >
             Let’s Connect
           </Link>
         </div>
       </div>
+
+      {/* Mobile menu overlay */}
+      {isMenuOpen && (
+        <div className="lg:hidden fixed inset-0 bg-white dark:bg-gray-900 z-50 flex flex-col items-center justify-center space-y-8">
+          <ul className="flex flex-col items-center space-y-8">
+            <li><Link to="/" className="text-3xl text-gray-900 dark:text-white" onClick={toggleMenu}>Home</Link></li>
+            <li><Link to="/about" className="text-3xl text-gray-900 dark:text-white" onClick={toggleMenu}>About</Link></li>
+            <li><Link to="/projects" className="text-3xl text-gray-900 dark:text-white" onClick={toggleMenu}>Projects</Link></li>
+            <li><Link to="/contact" className="text-3xl text-gray-900 dark:text-white" onClick={toggleMenu}>Contact</Link></li>
+          </ul>
+          <Link
+            to="/contact"
+            className="mt-8 inline-block rounded-md bg-indigo-custom px-5 py-2 text-white font-semibold shadow hover:bg-indigo-custom transition text-xl"
+            onClick={toggleMenu}
+          >
+            Let’s Connect
+          </Link>
+        </div>
+      )}
     </header>
   );
 };
