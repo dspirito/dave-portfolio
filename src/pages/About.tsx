@@ -23,7 +23,8 @@ const About: React.FC = () => (
       <div className="max-w-2xl">
         <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-gray-700">About David</h2>
         <p className="text-lg text-gray-700 dark:text-gray-700">
-          Hi, I'm David Spirito. I build modern, performant web experiences with React, TypeScript, and Tailwind CSS.
+          Hi, I'm David Spirito. I'm located in Cranston, Rhode Island and I build modern, performant web experiences with Magento, PHP, Javascript, React, TypeScript, SQL, HTML, CSS, Tailwind CSS, and quite a bit more. I have also become a subject matter expert in E-Commerce digital transformation, replatforming, administration, and SEO. <br /> <br />
+          When I'm not working, I'm usually spending time with my family and two dogs (rescue labradors), driving my Jeep Wrangler, doing home improvement projects, enjoying my many hobbies, or working on my side projects.
         </p>
         <div className="flex items-center mt-6">
           <a
