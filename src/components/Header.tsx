@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import DaveImg from '/dave.jpeg'; // Adjust the path if needed
 
 const Header: React.FC = () => {
-  const [dark, setDark] = useState(
-    () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  );
+  const [dark, setDark] = useState(false);
+  //uncomment this for dark mode
+  //const [dark, setDark] = useState(
+  //  () => window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  //);
 
   useEffect(() => {
     if (dark) {
@@ -27,7 +29,7 @@ const Header: React.FC = () => {
             />
           </Link>
           <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-            Dave Spirito's Portfolio
+            David Spirito's Portfolio
           </Link>
         </div>
         <nav>

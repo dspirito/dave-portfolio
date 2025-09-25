@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectCard from '../components/ProjectCard';
+import BrandsCarousel from '../components/BrandsCarousel';
 import sigOpticsImage from '../sig-optics.png';
 import reactevrebate from '../react-ev-rebate.png';
 import deepfakearmyImage from '../deep-fake-army.png';
@@ -62,6 +63,7 @@ const Projects: React.FC = () => {
                     <ProjectCard key={index} {...project} />
                 ))}
             </div>
+            <BrandsCarousel />
         </div>
     );
 };

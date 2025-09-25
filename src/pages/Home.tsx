@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import BrandsCarousel from '../components/BrandsCarousel';
 
 const Home: React.FC = () => (
   <section className="bg-gray-50 dark:bg-gray-900 py-24">
@@ -19,6 +20,7 @@ const Home: React.FC = () => (
       >
         View My Projects
       </Link>
+      <BrandsCarousel />
     </div>
   </section>
 );
