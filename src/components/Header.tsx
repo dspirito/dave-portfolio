@@ -23,11 +23,16 @@ const Header: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between py-6 px-4">
         <div className="flex items-center space-x-3">
           <Link to="/">
-            <img
-              src={DaveImg}
-              alt="David Spirito"
-              className="w-20 h-20 rounded-full object-cover border-2 border-indigo-custom"
-            />
+            <div className="relative">
+              <img
+                src={DaveImg}
+                alt="David Spirito"
+                className="w-20 h-20 rounded-full object-cover border-2 border-indigo-custom"
+              />
+              <span className="absolute top-20 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-sky-600/95 rounded-full group-hover:scale-105 transition-transform duration-150 ease-in-out">
+                For Hire!
+              </span>
+            </div>
           </Link>
           <Link to="/" className="text-2xl font-bold text-gray-900 dark:text-white">
             David Spirito's Portfolio
